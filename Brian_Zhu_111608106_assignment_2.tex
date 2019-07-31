@@ -1,0 +1,202 @@
+\documentclass{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\doublespacing
+
+\makeatletter
+\DeclareRobustCommand{\textsupsub}[2]{{%
+  \m@th\ensuremath{%
+    ^{\mbox{\fontsize\sf@size\z@#1}}%
+    _{\mbox{\fontsize\sf@size\z@#2}}%
+  }%
+}}
+\makeatother
+
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\begin{document}
+
+\noindent
+Brian Zhu \\
+Professor Radfar \\
+CSE 215.01 \\
+13 April 2018 \\
+\begin{center}
+Assignment \#2
+\end{center}
+
+Section 5.1\\
+74. Prove that if p is a prime number and r is an integer with 0 $<$ r $<$ p, then {\LARGE $\binom pr$} is divisible by p. \\
+\underline{Proof:} Suppose p is a prime number and r is an integer with 0 $<$ r $<$ p. \\
+Then {\LARGE $\binom pr$ = $\frac{p!}{r!(p-r)!}$ = $\frac{p \cdot (p - 1) \cdot (p - 2) \cdot ... \cdot (p - r + 1) \cdot (p - r)!}{r!(p-r)!}$ = $\frac{p \cdot (p - 1) \cdot (p - 2) \cdot ... \cdot (p - r + 1)}{r!}$} \\
+The prime factorization of the numerator will contain a p and the primes in the prime factorization of the denominator will be less than p. Since {\LARGE $\binom pr$} is an integer, all the primes in the denominator 
+will cancel out with the primes from the numerator. This will result in p times an integer. Therefore, {\LARGE $\binom pr$} is divisible by p. \\
+
+Section 5.2\\
+16. Prove each of the statements in 10\textendash17 by mathematical induction.\\
+(1 - {\Large $\frac{1}{2^2}$}) (1 - {\Large $\frac{1}{3^2}$}) ... (1 - {\Large $\frac{1}{n^2}$}) = {\Large $\frac{n + 1}{2n}$}, for all integers n $\geq$ 2.\\
+\underline{Proof:} P(n): (1 - {\Large $\frac{1}{2^2}$}) (1 - {\Large $\frac{1}{3^2}$}) ... (1 - {\Large $\frac{1}{n^2}$}) = {\Large $\frac{n + 1}{2n}$} \\
+Basis Step: Show that P(2) is true. \\
+(1 - {\Large $\frac{1}{2^2}$}) = {\Large $\frac{2 + 1}{2 \cdot 2}$}\\
+(1 - {\Large $\frac{1}{4}$}) = {\Large $\frac{3}{4}$}\\
+{\Large $\frac{3}{4}$} = {\Large $\frac{3}{4}$} {\Large \checkmark}\\
+Inductive Hypothesis - 
+P(k): (1 - {\Large $\frac{1}{2^2}$}) (1 - {\Large $\frac{1}{3^2}$}) ... (1 - {\Large $\frac{1}{k^2}$}) = {\Large $\frac{k + 1}{2k}$}, for all integers k $\geq$ 2.\\
+Suppose P(k) is true. Show that if P(k) is true, then P(k + 1) is true: \\
+P(k+1): (1 - {\Large $\frac{1}{2^2}$}) (1 - {\Large $\frac{1}{3^2}$}) ... (1 - {\Large $\frac{1}{(k+1)^2}$}) = {\Large $\frac{(k + 1) + 1}{2(k + 1)}$} \\
+P(k+1): (1 - {\Large $\frac{1}{2^2}$}) (1 - {\Large $\frac{1}{3^2}$}) ... (1 - {\Large $\frac{1}{(k+1)^2}$}) = {\Large $\frac{k + 2}{2k + 2}$} \\
+P(k+1) = (1 - {\Large $\frac{1}{2^2}$}) (1 - {\Large $\frac{1}{3^2}$}) ... (1 - {\Large $\frac{1}{k^2}$}) (1 - {\Large $\frac{1}{(k+1)^2}$}) \\
+P(k+1) = {\Large $\frac{k + 1}{2k}$}  (1 - {\Large $\frac{1}{(k+1)^2}$}) \\
+P(k+1) = {\Large $\frac{k + 1}{2k}$}  (1 - {\Large $\frac{1}{k^2 + 2k + 1}$}) \\
+P(k+1) = {\Large $\frac{k + 1}{2k}$}  ({\Large $\frac{k^2 + 2k + 1}{k^2 + 2k + 1}$} - {\Large $\frac{1}{k^2 + 2k + 1}$}) \\
+P(k+1) = {\Large $\frac{k + 1}{2k}$}  ({\Large $\frac{k^2 + 2k}{k^2 + 2k + 1}$}) \\
+P(k+1) = {\Large $\frac{k + 1}{2k}$}  ({\Large $\frac{k^2 + 2k}{(k+1)^2}$}) \\
+P(k+1) = {\Large $\frac{k^2 + 2k}{2k \cdot (k+1)}$} \\
+P(k+1) = {\Large $\frac{k \cdot (k + 2)}{2k \cdot (k+1)}$} \\
+P(k+1) = {\Large $\frac{(k + 2)}{2 \cdot (k+1)}$} \\
+P(k+1) = {\Large $\frac{k + 2}{2k + 2}$} {\Large \checkmark} \\
+27. Use the formula for the sum of the first n integers and/or the formula for the sum of a geometric sequence to evaluate the sums in 20\textendash29 or to write them in closed form. \\
+5$^3$ + 5$^4$ + 5$^5$ + ... + 5$^k$, where k is any integer with k $\geq$ 3.\\
+5$^3$ + 5$^4$ + 5$^5$ + ... + 5$^k$ = 1 + 5 + 5$^2$ + 5$^3$ + 5$^4$ + 5$^5$ + ... + 5$^k$ - (1 + 5 +  5$^2$) \\
+1 + 5 + 5$^2$ + 5$^3$ + 5$^4$ + 5$^5$ + ... + 5$^k$ - (1 + 5 +  5$^2$) = {\Large $\frac{5^{k+1} - 1}{4}$} - {\Large $\frac{5^{3} - 1}{4}$} = {\Large $\frac{5^{k+1} - 1}{4}$} - 31 = {\Large $\frac{5^{k+1} - 1}{4}$} - {\Large $\frac{124}{4}$} = {\Large $\frac{5^{k+1} - 125}{4}$}\\
+
+Section 5.3\\
+21. Prove each statement in 8\textendash23 by mathematical induction. \\
+$\sqrt{n}$ $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{n}}$}, for all integers n $\geq$ 2. \\
+\underline{Proof:} P(n): $\sqrt{n}$ $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{n}}$}\\
+Basis Step: Show that P(2) is true. \\
+$\sqrt{2}$ $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$}\\
+$\sqrt{2}$ $\cdot$ {\Large $\frac{\sqrt{2}}{\sqrt{2}}$} $<$ 1 + {\Large $\frac{1}{\sqrt{2}}$}\\
+{\Large $\frac{2}{\sqrt{2}}$} $<$ {\Large $\frac{\sqrt{2}}{\sqrt{2}}$} + {\Large $\frac{1}{\sqrt{2}}$}\\
+{\Large $\frac{2}{\sqrt{2}}$} $<$ {\Large $\frac{\sqrt{2} + 1}{\sqrt{2}}$} {\Large \checkmark}\\
+Inductive Hypothesis - P(k): $\sqrt{k}$ $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{k}}$}, for all integers k $\geq$ 2. \\
+Suppose P(k) is true. Show that if P(k) is true, then P(k + 1) is true: \\
+P(k + 1): $\sqrt{k + 1}$ $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{k}}$} + {\Large $\frac{1}{\sqrt{k + 1}}$} \\
+$\sqrt{k}$ + {\Large $\frac{1}{\sqrt{k + 1}}$} $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{k}}$} + {\Large $\frac{1}{\sqrt{k + 1}}$} \\
+{\Large $\frac{\sqrt{k} \cdot \sqrt{k + 1} + 1}{\sqrt{k + 1}}$} $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{k}}$} + {\Large $\frac{1}{\sqrt{k + 1}}$} \\
+{\Large $\frac{\sqrt{k \cdot (k + 1)} + 1}{\sqrt{k + 1}}$} $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{k}}$} + {\Large $\frac{1}{\sqrt{k + 1}}$} \\
+{\Large $\frac{\sqrt{k^2 + k} + 1}{\sqrt{k + 1}}$} $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{k}}$} + {\Large $\frac{1}{\sqrt{k + 1}}$} \\
+\\
+$\sqrt{k + 1}$ = $\sqrt{k + 1}$ $\cdot$ {\Large $\frac{\sqrt{k + 1}}{\sqrt{k + 1}}$} = {\Large $\frac{k + 1}{\sqrt{k + 1}}$} \\
+$\sqrt{k^2 + k}$ + 1 $>$ k + 1 \\
+$\sqrt{k^2 + k}$ $>$ k \\
+k$^2$ + k $>$ k$^2$ \\
+k $>$ 0 This is true because it is assumed k $\geq$ 2. \\
+$\therefore$ $\sqrt{k + 1}$ $<$ {\Large $\frac{1}{\sqrt{1}}$} + {\Large $\frac{1}{\sqrt{2}}$} + ... + {\Large $\frac{1}{\sqrt{k}}$} + {\Large $\frac{1}{\sqrt{k + 1}}$} {\Large \checkmark}\\
+
+Section 5.5\\
+29. In 24\textendash34, F$_0$, F$_1$, F$_2$, ... is the Fibonacci sequence. \\
+Prove that F$\textsupsub{2}{k + 1}$ -  F$\textsupsub{2}{k}$ = F$_{k - 1}$F$_{k + 2}$, for all integers k $\geq$ 1. \\
+For all integers k $\geq$ 1, \\
+F$\textsupsub{2}{k + 1}$ -  F$\textsupsub{2}{k}$ = (F$_{k + 1}$ + F$_{k}$) $\cdot$ (F$_{k + 1}$ - F$_{k}$) - (difference of two squares)\\
+= (F$_{k + 2}$) $\cdot$ (F$_{k + 1}$ - F$_{k}$) - (definition of the Fibonacci sequence)\\
+= F$_{k + 2}$ F$_{k + 1}$ - F$_{k + 2}$ F$_{k}$ \\
+= F$_{k + 2}$ (F$_{k}$ + F$_{k - 1}$) - F$_{k + 2}$ F$_{k}$ - (definition of the Fibonacci sequence)\\
+= F$_{k + 2}$ F$_{k}$ + F$_{k - 1}$ F$_{k + 2}$ - F$_{k + 2}$ F$_{k}$ \\
+= F$_{k - 1}$ F$_{k + 2}$  {\Large \checkmark}\\
+
+Section 5.6\\
+15. In each of 3\textendash15 a sequence is defined recursively. Use iteration to guess an explicit formula for the sequence. Use the formulas from Section 5.2 to simplify your answers whenever possible. \\
+y$_k$ = y$_{k - 1}$ + k$^2$, for all integers k $\geq$ 2 \\
+y$_1$ = 1 \\
+y$_2$ = y$_1$ + 2$^2$ = 1 + 2$^2$ = 5 \\
+y$_3$ = y$_2$ + 3$^2$ = 1 + 2$^2$ + 3$^2$ = 14 \\
+y$_4$ = y$_3$ + 4$^2$ = 1 + 2$^2$ + 3$^2$ + 4$^2$= 30 \\
+y$_5$ = y$_4$ + 5$^2$ = 1 + 2$^2$ + 3$^2$ + 4$^2$ + 5$^2$= 55 \\
+y$_k$ = 1 + 2$^2$ + 3$^2$ + ... + (k - 1)$^2$ + (k)$^2$=  {\Large $\frac{(k) \cdot (k + 1) \cdot (2k + 1)}{6}$}\\
+This formula is the summation of the first k Squares.\\
+46. In each of 43\textendash49 a sequence is defined recursively. (a) Use iteration to guess an explicit formula for the sequence. (b) Use strong mathematical induction to verify that the formula of part (a) is correct. \\
+s$_k$ = 2s$_{k - 2}$, for all integers k $\geq$ 2, \\
+s$_0$ = 1, s$_1$ = 2. \\
+(a) s$_0$ = 1 \\
+s$_1$ = 2 \\
+s$_2$ = 2s$_0$ = 2 $\cdot$ 1 = 2 \\
+s$_3$ = 2s$_1$ = 2 $\cdot$ 2 = 4 \\
+s$_4$ = 2s$_2$ = 2 $\cdot$ 2 $\cdot$ 1 = 4 \\
+s$_5$ = 2s$_3$ = 2 $\cdot$ 2 $\cdot$ 2 = 8 \\
+s$_6$ = 2s$_4$ = 2 $\cdot$ 2 $\cdot$ 2 $\cdot$ 1 = 8 \\
+s$_7$ = 2s$_5$ = 2 $\cdot$ 2 $\cdot$ 2 $\cdot$ 2 = 16 \\
+s$_8$ = 2s$_6$ = 2 $\cdot$ 2 $\cdot$ 2 $\cdot$ 2 $\cdot$ 1 = 16 \\
+s$_k$ =
+$\begin{cases}$
+2$^{(k+1)/2}$ if k is odd $\\$
+2$^{k/2}$ if k is even
+$\end{cases}$ \\
+= 2$^{\lceil {k/2} \rceil}$ for all integers k $\geq$ 0. \\
+(b) \underline{Proof:} \\
+Let s$_0$, s$_1$, s$_2$, ... be the recursive sequence defined by s$_0$ = 1, s$_1$ = 2 and s$_k$ = 2s$_{k - 2}$, for all integers k $\geq$ 2. \\
+P(n): s$_n$ = 2$^{\lceil {n/2} \rceil}$ for all integers n $\geq$ 0. \\
+Basis Step: Show that P(0) is true. \\
+P(0) = 2$^{\lceil 0/2 \rceil}$ = 1  {\Large \checkmark}\\
+This equals s$_0$ in the sequence s$_0$, s$_1$, s$_2$, ... \\
+Inductive Hypothesis - \\
+P(k): s$_k$ = 2$^{\lceil {k/2} \rceil}$ for all integers k $\geq$ 0. \\
+Suppose P(i) is true for all integers i with 0 $\leq$ i $\leq$ k. Show that P(k + 1) is true: \\
+P(k + 1): s$_{k + 1}$ = 2$^{\lceil {(k + 1)/2} \rceil}$ \\
+s$_{k + 1}$ = 2s$_{k - 1}$ \\
+s$_{k + 1}$ = 2 $\cdot$ 2$^{\lceil {(k - 1)/2} \rceil}$\\
+s$_{k + 1}$ =2$^{\lceil {((k - 1)/2) + 1} \rceil}$\\
+s$_{k + 1}$ =2$^{\lceil {((k - 1)/2) + (2/2)} \rceil}$\\
+s$_{k + 1}$ = 2$^{\lceil {(k + 1)/2} \rceil}$ {\Large \checkmark}\\
+
+Section 6.1\\
+23. Let V$_i$ = \{x $\varepsilon$ $\mathbb{R}$ |  - {\Large  $\frac{1}{i}$} $\leq$ x $\leq$ {\Large  $\frac{1}{i}$}\} = [ - {\Large  $\frac{1}{i}$} ,  {\Large  $\frac{1}{i}$}] for all positive integers i. \\
+V$_1$ = [-1, 1], V$_2$ = [-{\Large  $\frac{1}{2}$}, {\Large  $\frac{1}{2}$}], V$_3$ = [-{\Large  $\frac{1}{3}$}, {\Large  $\frac{1}{3}$}], V$_4$ = [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}] \\
+a. $\bigcup\limits_{i=1}^{4} V_{i}$ = ? \\
+$\bigcup\limits_{i=1}^{4} V_{i}$ = [-1, 1] $\bigcup$ [-{\Large  $\frac{1}{2}$}, {\Large  $\frac{1}{2}$}] $\bigcup$ [-{\Large  $\frac{1}{3}$}, {\Large  $\frac{1}{3}$}] $\bigcup$ [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}]  = [-1, 1] \\
+b. $\bigcap\limits_{i=1}^{4} V_{i}$ = ? \\
+$\bigcap\limits_{i=1}^{4} V_{i}$ = [-1, 1] $\bigcap$ [-{\Large  $\frac{1}{2}$}, {\Large  $\frac{1}{2}$}] $\bigcap$ [-{\Large  $\frac{1}{3}$}, {\Large  $\frac{1}{3}$}] $\bigcap$ [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}]  = [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}] \\
+c. Are V$_1$, V$_2$, V$_3$, ... mutually disjoint? Explain. \\
+V$_1$, V$_2$, V$_3$, ... are not mutually disjoint because they intersect each other. V$_{k + 1}$ $\subseteq$ V$_{k}$ for all integers k $\geq$ 1. \\
+d. $\bigcup\limits_{i=1}^{n} V_{i}$ = ? \\
+$\bigcup\limits_{i=1}^{n} V_{i}$ = [-1, 1] $\bigcup$ [-{\Large  $\frac{1}{2}$}, {\Large  $\frac{1}{2}$}] $\bigcup$ [-{\Large  $\frac{1}{3}$}, {\Large  $\frac{1}{3}$}] $\bigcup$ [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}] ... $\bigcup$ [-{\Large  $\frac{1}{n}$}, {\Large  $\frac{1}{n}$}] = [-1, 1] \\
+e. $\bigcap\limits_{i=1}^{n} V_{i}$ = ? \\
+$\bigcap\limits_{i=1}^{n} V_{i}$ = [-1, 1] $\bigcap$ [-{\Large  $\frac{1}{2}$}, {\Large  $\frac{1}{2}$}] $\bigcap$ [-{\Large  $\frac{1}{3}$}, {\Large  $\frac{1}{3}$}] $\bigcap$ [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}] ... $\bigcap$ [-{\Large  $\frac{1}{n}$}, {\Large  $\frac{1}{n}$}] = [-{\Large  $\frac{1}{n}$}, {\Large  $\frac{1}{n}$}] \\
+f. $\bigcup\limits_{i=1}^{\infty} V_{i}$ = ? \\
+$\bigcup\limits_{i=1}^{\infty} V_{i}$ = [-1, 1] $\bigcup$ [-{\Large  $\frac{1}{2}$}, {\Large  $\frac{1}{2}$}] $\bigcup$ [-{\Large  $\frac{1}{3}$}, {\Large  $\frac{1}{3}$}] $\bigcup$ [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}] ... $\bigcup$ [-{\Large  $\frac{1}{\infty}$}, {\Large  $\frac{1}{\infty}$}] = [-1, 1] \\
+g. $\bigcap\limits_{i=1}^{\infty} V_{i}$ = ? \\
+$\bigcap\limits_{i=1}^{\infty} V_{i}$ = [-1, 1] $\bigcap$ [-{\Large  $\frac{1}{2}$}, {\Large  $\frac{1}{2}$}] $\bigcap$ [-{\Large  $\frac{1}{3}$}, {\Large  $\frac{1}{3}$}] $\bigcap$ [-{\Large  $\frac{1}{4}$}, {\Large  $\frac{1}{4}$}] ... $\bigcap$ [-{\Large  $\frac{1}{\infty}$}, {\Large  $\frac{1}{\infty}$}] = [0] \\
+
+Section 6.2\\
+19. Use an element argument to prove each statement in 7\textendash19. Assume that all sets are subsets of a universal set U. \\
+For all sets A, B, and C, \\
+A $\times$ (B $\bigcap$ C) = (A $\times$ B) $\bigcap$ (A $\times$ C). \\
+Case 1: A $\times$ (B $\bigcap$ C) $\subseteq$ (A $\times$ B) $\bigcap$ (A $\times$ C) \\
+Suppose (x , y) $\varepsilon$ A $\times$ (B $\bigcap$ C). \\
+1. x $\varepsilon$ A - definition of cartesian product \\
+2. y $\varepsilon$ (B $\bigcap$ C) - definition of cartesian product \\
+3. y $\varepsilon$ B - definition of set intersection \\
+4. y $\varepsilon$ C - definition of set intersection \\
+5. (x, y) $\varepsilon$ (A $\times$ B) - (1), (3) cartesian product \\
+6. (x, y) $\varepsilon$ (A $\times$ C) - (1), (4) cartesian product \\
+7. (x, y) $\varepsilon$ (A $\times$ B) $\bigcap$ (A $\times$ C) - (5), (6) set intersection \\
+Case 2: (A $\times$ B) $\bigcap$ (A $\times$ C) $\subseteq$ A $\times$ (B $\bigcap$ C) \\
+Suppose (x, y) $\varepsilon$ (A $\times$ B) $\bigcap$ (A $\times$ C) \\
+1. (x, y) $\varepsilon$ (A $\times$ B) - definition of set intersection \\
+2. (x, y) $\varepsilon$ (A $\times$ C) - definition of set intersection \\
+3. x $\varepsilon$ A - (1), definition of cartesian product \\
+4. y $\varepsilon$ B - (1), definition of cartesian product \\
+5. y $\varepsilon$ C - (2), definition of cartesian product \\
+6. y $\varepsilon$ (B $\bigcap$ C) - (4), (5), set intersection \\
+7. (x, y) $\varepsilon$ A $\times$ (B $\bigcap$ C) - (3), (6), cartesian product\\
+
+Section 6.3\\
+35. In 30\textendash40, construct an algebraic proof for the given statement. Cite a property from Theorem 6.2.2 for every step. \\
+For all sets A and B, A - (A - B) =  A $\bigcap$ B. \\
+A - (A - B) \\
+= A $\bigcap$ (A - B)$^c$ - Set Difference Law \\
+= A $\bigcap$ (A $\bigcap$ B$^c$)$^c$ - Set Difference Law \\
+= A $\bigcap$ (A$^c$ $\bigcup$ {(B$^c$)}$^c$) - De Morgan$\textquotesingle$s Law for $\bigcap$\\
+= A $\bigcap$ (A$^c$ $\bigcup$ B) - Double Complement Law \\
+= (A $\bigcap$ A$^c$) $\bigcup$ (A $\bigcap$ B) - Distributive Law for $\bigcap$\\
+= $\oldemptyset$ $\bigcup$ (A $\bigcap$ B) - Complement Law for $\bigcap$\\
+= (A $\bigcap$ B) $\bigcup$ $\oldemptyset$ - Commutative Law for $\bigcup$\\
+= (A $\bigcap$ B) - Identity Law for $\bigcup$\\
+
+\end{document}
