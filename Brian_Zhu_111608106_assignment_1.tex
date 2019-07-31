@@ -1,0 +1,167 @@
+\documentclass{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\doublespacing
+
+\begin{document}
+
+\noindent
+Brian Zhu \\
+Professor Radfar \\
+CSE 215.01 \\
+06 March 2018 \\
+\begin{center}
+Assignment \#1
+\end{center}
+
+Section 2.1\\
+42. Use truth tables to establish which of the statement forms in 40\textendash43 are tautologies and which are contradictions. \\
+(($\sim$p $\wedge$  q) $\wedge$  (q $\wedge$  r)) $\wedge$  $\sim$q
+
+\begin{table}[h]
+\centering
+\caption{Problem 42}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+p & q & r & $\sim$p & $\sim$p $\wedge$  q & q $\wedge$  r & ($\sim$p $\wedge$  q) $\wedge$  (q $\wedge$  r) & $\sim$q & (($\sim$p $\wedge$  q) $\wedge$  (q $\wedge$  r)) $\wedge$  $\sim$q \\ \hline
+1 & 1 & 1 & 0       & 0                           & 1                     & 0                                                                       & 0       & 0                                                                                                   \\ \hline
+1 & 1 & 0 & 0       & 0                           & 0                     & 0                                                                       & 0       & 0                                                                                                   \\ \hline
+1 & 0 & 1 & 0       & 0                           & 0                     & 0                                                                       & 1       & 0                                                                                                   \\ \hline
+1 & 0 & 0 & 0       & 0                           & 0                     & 0                                                                       & 1       & 0                                                                                                   \\ \hline
+0 & 1 & 1 & 1       & 1                           & 1                     & 1                                                                       & 0       & 0                                                                                                   \\ \hline
+0 & 1 & 0 & 1       & 1                           & 0                     & 0                                                                       & 0       & 0                                                                                                   \\ \hline
+0 & 0 & 1 & 1       & 0                           & 0                     & 0                                                                       & 1       & 0                                                                                                   \\ \hline
+0 & 0 & 0 & 1       & 0                           & 0                     & 0                                                                       & 1       & 0                                                                                                   \\ \hline
+\end{tabular}
+\end{table}
+
+This statement form is a contradiction because the statement is always false. The conclusion statement is all 0's. \\
+
+Section 2.2\\
+11. Construct truth tables for the statement forms in 5\textendash11. \\
+(p $\rightarrow$ (q $\rightarrow$ r)) $\leftrightarrow$ ((p $\wedge$  q) $\rightarrow$ r)
+
+\begin{table}[h]
+\centering
+\caption{Problem 11}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+p & q & r & q $\rightarrow$ r & (p $\rightarrow$ (q $\rightarrow$ r)) & p $\wedge$  q & ((p $\wedge$  q) $\rightarrow$ r) & (p $\rightarrow$ (q $\rightarrow$ r)) $\leftrightarrow$ ((p $\wedge$  q) $\rightarrow$ r) \\ \hline
+1 & 1 & 1 & 1                & 1                                   & 1                     & 1                                        & 1                                                                                                  \\ \hline
+1 & 1 & 0 & 0                & 0                                   & 1                     & 0                                        & 1                                                                                                  \\ \hline
+1 & 0 & 1 & 1                & 1                                   & 0                     & 1                                        & 1                                                                                                  \\ \hline
+1 & 0 & 0 & 1                & 1                                   & 0                     & 1                                        & 1                                                                                                  \\ \hline
+0 & 1 & 1 & 1                & 1                                   & 0                     & 1                                        & 1                                                                                                  \\ \hline
+0 & 1 & 0 & 0                & 1                                   & 0                     & 1                                        & 1                                                                                                  \\ \hline
+0 & 0 & 1 & 1                & 1                                   & 0                     & 1                                        & 1                                                                                                  \\ \hline
+0 & 0 & 0 & 1                & 1                                   & 0                     & 1                                        & 1                                                                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+This statement form is a tautology because the statement is always true. This is indicated by the conclusion statement is all 1's. \\
+
+Section 2.3\\
+9. Use truth tables to determine whether the argument forms in 6\textendash11 are valid. Indicate which columns represent the premises and
+which represent the conclusion, and include a sentence explaining how the truth table supports your answer. Your explanation
+should show that you understand what it means for a form of argument to be valid or invalid.\\
+\\
+p $\wedge$ q $\rightarrow$ $\sim$r \\
+p $\vee$ $\sim$q \\
+$\sim$q $\rightarrow$ p \\
+$\therefore$ $\sim$r \\
+
+\begin{table}[h]
+\centering
+\caption{Problem 9}
+\label{my-label}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+p & q & r & p $\wedge$  q & $\sim$r & p $\wedge$  q $\rightarrow$ $\sim$r (premise) & $\sim$q & p $\vee$ $\sim$q (premise) & $\sim$q $\rightarrow$ p (premise) & $\sim$r (conclusion) \\ \hline
+1 & 1 & 1 & 1                     & 0       & 0                                          & 0       & 1            & 1                      &         \\ \hline
+1 & 1 & 0 & 1                     & 1       & 1                                          & 0       & 1            & 1                      & 1       \\ \hline
+1 & 0 & 1 & 0                     & 0       & 1                                          & 1       & 1            & 1                      & 0       \\ \hline
+1 & 0 & 0 & 0                     & 1       & 1                                          & 1       & 1            & 1                      & 1       \\ \hline
+0 & 1 & 1 & 0                     & 0       & 1                                          & 0       & 0            & 1                      &         \\ \hline
+0 & 1 & 0 & 0                     & 1       & 1                                          & 0       & 0            & 1                      &         \\ \hline
+0 & 0 & 1 & 0                     & 0       & 1                                          & 1       & 1            & 0                      &         \\ \hline
+0 & 0 & 0 & 0                     & 1       & 1                                          & 1       & 1            & 0                      &         \\ \hline
+\end{tabular}
+\end{table}
+
+This argument form is not valid. This is because in the 3rd critical row, the conclusion is false, indicated by the 0. The premises are true, but the conclusion is false. \\
+28. Some of the arguments in 24\textendash32 are valid, whereas others exhibit the converse or the inverse error. Use symbols to write
+the logical form of each argument. If the argument is valid, identify the rule of inference that guarantees its validity. Otherwise,
+state whether the converse or the inverse error is made. \\
+\\
+If there are as many rational numbers as there are irrational numbers, then the set of all irrational numbers is infinite. \\
+The set of all irrational numbers is infinite. \\
+$\therefore$ There are as many rational numbers as there are irrational
+numbers.\\
+
+p = there are as many rational numbers as there are irrational numbers \\
+\indent q = the set of all irrational numbers is infinite \\
+\indent p $\rightarrow$ q \\
+\indent q \\
+\indent $\therefore$ p \\
+\indent invalid: converse error made \\
+42. In 41\textendash44 a set of premises and a conclusion are given. Use the valid argument forms listed in Table 2.3.1 to deduce the conclusion
+from the premises, giving a reason for each step as in Example 2.3.8. Assume all variables are statement variables. \\
+a. p $\vee$ q \\
+b. q $\rightarrow$ r \\
+c. p $\wedge$ s $\rightarrow$ t \\
+d. $\sim$r \\
+e. $\sim$q $\rightarrow$ u $\wedge$ s \\
+f. $\therefore$ t \\
+1. q $\rightarrow$ r by premise (b) \\
+\indent $\sim$r by premise (d) \\
+$\therefore$ $\sim$q by Modus Tollens \\
+2. p $\vee$ q by premise (a) \\
+\indent $\sim$q by (1) \\
+$\therefore$ p by Elimination \\
+3. $\sim$q $\rightarrow$ u $\wedge$ s by premise (e)\\
+\indent $\sim$q by (1) \\
+$\therefore$ u $\wedge$ s by Modus Ponens \\
+4. u $\wedge$ s by (3) \\
+$\therefore$ s by Specialization \\
+5. p by (2) \\
+\indent s by (4) \\
+$\therefore$ p $\wedge$ s by Conjunction \\
+6. p $\wedge$ s $\rightarrow$ t by premise (c) \\
+\indent p $\wedge$ s by (5) \\
+$\therefore$ t by Modus Ponens \\
+
+Section 3.3\\
+41. Indicate which of the following statements are true and which are false. Justify your answers as best you can. \\
+h. $\exists$u $\epsilon$ $\mathbf{R}$ $^{+}$ such that $\forall$ $\upsilon$ $\epsilon$ $\mathbf{R}$ $^{+}$ , u $\upsilon$ $<$ $\upsilon$. \\
+This statement says that there is a positive real number such that the product of that positive real number and any other positive real number is less than the second positive real number. This is true because there exists a positive real number when it multiplys with any other positive real number is less than the second positive
+real number. It could be any positive fraction such as \( \frac{1}{2} \). Any positive real number multipled with \( \frac{1}{2} \) is less than the original positive real number. \\
+
+Section 4.1\\
+8. Prove the statements in 4\textendash10. \\
+There is a real number x such that x $>$ 1 and 2$^{x}$ $>$ x$^{10}$. \\
+For example, let x equal 1.01. 1.01 is a real number and makes the inequality true. 2$^{1.01}$ $\approx$ 2.014, 1.01$^{10}$ $\approx$ 1.105. 2.014 $>$ 1.105. \\
+52. In 43\textendash60 determine whether the statement is true or false. Justify your answer with a proof or a counterexample, as appropriate.
+In each case use only the definitions of the terms and the Assumptions listed on page 110 not any previously established properties. \\
+For all integers m, if m $>$ 2 then m$^{2}$ - 4 is composite.\\
+This statement is false. Proof by counterexample.
+Let m equal 3, a integer. Then 3$^{2}$ - 4 = 5. 5 is a prime number, so the statement is false.\\
+
+Section 4.2\\
+23. Use the properties of even and odd integers that are listed in Example 4.2.3 to do exercises 21\textendash23. Indicate which properties you use to justify your reasoning.\\
+True or false? If k is any even integer and m is any odd integer, then (k + 2)$^{2}$ - (m - 1)$^{2}$ is even. Explain.\\
+This statement is true. \underline{Proof}$\colon$ Suppose k is any even integer, and m is any odd integer. Then (k + 2) is an even integer and (k + 2)$^{2}$ is an even integer because of property 1 in Example 4.2.3. ((k + 2)$^{2}$ = (k + 2)(k + 2)). (m - 1) is an even integer because of property 2 in Example 4.2.3. (m - 1)$^{2}$ is an even integer because of property 1 in Example 4.2.3. ((m - 1)$^{2}$ = (m - 1)(m - 1)). Therefore, (k + 2)$^{2}$ - (m - 1)$^{2}$ is even because of property 1 in Example 4.2.3. \\
+
+Section 4.4\\
+24. Prove that for all integers m and n, if m mod 5 = 2 and n mod 5 = 1 then mn mod 5 = 2. \\
+\underline{Proof}$\colon$ Suppose m and n are any arbitrarily chosen integers such that m mod 5 = 2 and n mod 5 = 1. Then, the remainder when m is divided by 5 is 2, and the remainder when n is divided by 5 is 1. So, m = 5q + 2 and n = 5r + 1 for some integers q and r. By substitution, \\
+mn = (5q + 2)(5r + 1) = 25qr + 5q + 10r + 2. \\
+25qr + 5q + 10r + 2 = 5 (5qr + q + 2r) + 2. \\
+Let (5qr + q + 2r) equal some integer k because the sum and product of integers is an integer.\\
+5 (5qr + q + 2r) + 2 = 5k + 2.\\
+Since 0 $\leq$ 2 $<$ 5, the remainder when mn is divided by 5 is 2 or mn mod 5 = 2.\\
+
+\end{document}
